@@ -1,0 +1,169 @@
+html, body {
+  background-color: #4E4E4E;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic Pro", "Osaka", "Meiryo", "MS PGothic", sans-serif;
+  font-size: 11px;
+  font-size: 1.1rem;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+h1, h2
+{
+  font-weight: normal;
+  position: absolute;
+  left: 10px;
+}
+
+h1 {
+  top: 10px;
+  font-size: 1.5rem;
+}
+
+h2 {
+  top: 44px;
+  font-size: 1.1rem;
+}
+
+
+#downloadInfo,
+#contentsInfo
+{
+  position: absolute;
+  bottom: 10px;
+}
+
+#downloadInfo
+{
+  left: 10px;
+}
+#contentsInfo
+{
+  right: 20px;
+}
+
+
+$loadingHeight: 10;
+
+$buttonSize: 120;
+
+#progressBarLayer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+
+  > div
+  {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  #progressBar {
+    height: $loadingHeight + px;
+    background-color: #fff;
+    left: 0;
+    margin-top: - $loadingHeight / 2 +px;
+    transition: 0.2s all ease-in-out;
+
+    background: -moz-linear-gradient(top, rgba(177,216,245,0) 0%, rgba(206,35,200,1) 50%, rgba(177,216,245,0.01) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(177,216,245,0)), color-stop(50%,rgba(206,35,200,1)), color-stop(100%,rgba(177,216,245,0.01)));
+    background: -webkit-linear-gradient(top, rgba(177,216,245,0) 0%,rgba(206,35,200,1) 50%,rgba(177,216,245,0.01) 100%);
+    background: -o-linear-gradient(top, rgba(177,216,245,0) 0%,rgba(206,35,200,1) 50%,rgba(177,216,245,0.01) 100%);
+    background: -ms-linear-gradient(top, rgba(177,216,245,0) 0%,rgba(206,35,200,1) 50%,rgba(177,216,245,0.01) 100%);
+    background: linear-gradient(to bottom, rgba(177,216,245,0) 0%,rgba(206,35,200,1) 50%,rgba(177,216,245,0.01) 100%);
+
+  }
+
+  #playButton {
+    width: $buttonSize + px;
+    height: $buttonSize + px;
+    margin-top: - $buttonSize / 2 +px;
+    margin-left: - $buttonSize / 2 +px;
+    color: #fff9ef;
+    font-size: $buttonSize + px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.2s all ease-in-out;
+    text-shadow: 0px 0px 20px #fff9ef;
+
+    &:hover {
+      color: #ce23c8;
+      text-shadow: 0px 0px 20px #ce23c8;
+
+    }
+
+
+    i {
+      display: block;
+    }
+  }
+
+  &.on
+  {
+    cursor: pointer;
+    #playButton {
+      opacity: 1;
+    }
+  }
+}
+
+
+
+$w:465;
+
+#mainLayer
+{
+  width: $w + px;
+  height: $w + px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -($w /2)+px;
+  margin-top: -($w /2)+px;
+
+  > div
+  {
+    position: absolute;
+    width: $w + px;
+    height: $w + px;
+    top: 0;
+    left: 0;
+  }
+
+  #windowLayer
+  {
+    display: flex;
+    width: $w + px;
+    height: $w + px;
+    box-sizing: border-box;
+    border: 20px solid #fff;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    div
+    {
+      box-sizing: border-box;
+      width: 33.4%;
+      height: 100%;
+      border-right: 5px #fff solid;
+      border-left: 5px #fff;
+    }
+  }
+}
+
+#myCanvas {
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
